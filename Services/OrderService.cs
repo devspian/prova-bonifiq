@@ -14,9 +14,7 @@ namespace ProvaPub.Services
         }
         public async Task<Order> PayOrder(EnumMetodoPagamento paymentMethod, decimal paymentValue, int customerId)
         {
-
             return await _repository.PayOrder(paymentMethod, paymentValue, customerId);
-
         }
     }
 }

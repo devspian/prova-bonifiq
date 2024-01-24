@@ -56,10 +56,8 @@ namespace ProvaPub.Repository
         }
         public async Task<Order> PayOrderPaypal(decimal paymentValue, int customerId)
         {
-
             //Faz pagamento...
 
-            GetCustomer(customerId);
             return await Task.FromResult(new Order()
             {
                 Id = Interlocked.Increment(ref lastOrderId),
