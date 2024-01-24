@@ -1,28 +1,22 @@
-﻿using ProvaPub.Models;
+﻿using ProvaPub.Enum;
+using ProvaPub.Models;
+using ProvaPub.Repository;
 
 namespace ProvaPub.Services
 {
-	public class OrderService
-	{
-		public async Task<Order> PayOrder(string paymentMethod, decimal paymentValue, int customerId)
-		{
-			if (paymentMethod == "pix")
-			{
-				//Faz pagamento...
-			}
-			else if (paymentMethod == "creditcard")
-			{
-				//Faz pagamento...
-			}
-			else if (paymentMethod == "paypal")
-			{
-				//Faz pagamento...
-			}
+    public class OrderService
+    {
+        protected readonly OrderRepository _repository;
 
-			return await Task.FromResult( new Order()
-			{
-				Value = paymentValue
-			});
-		}
-	}
+        public OrderService(OrderRepository repository)
+        {
+            _repository = repository;
+        }
+        public async Task<Order> PayOrder(EnumMetodoPagamento paymentMethod, decimal paymentValue, int customerId)
+        {
+
+            return await _repository.PayOrder(paymentMethod, paymentValue, customerId);
+
+        }
+    }
 }
