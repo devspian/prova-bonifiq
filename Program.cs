@@ -9,8 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddTransient<ProductService>();
 builder.Services.AddTransient<CustomerService>();
+builder.Services.AddTransient<OrderService>();
 builder.Services.AddTransient<ProductRepository>();
 builder.Services.AddTransient<CustomerRepository>();
+builder.Services.AddTransient<OrderRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
