@@ -72,8 +72,6 @@ namespace ProvaPub.Repository
 
         public Customer? GetCustomer(int customerId)
         {
-            var link = new Customer();
-
             var customer = _ctx.Customers.Where(a => a.Id == customerId).FirstOrDefault();
 
             if (customer != null)
